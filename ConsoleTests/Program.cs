@@ -7,13 +7,7 @@ namespace ConsoleTests
     {
         static void Main(string[] args)
         {
-            var khaiClient = new KhaiClient();
-            khaiClient.ConnectAsync().Wait();
-
-            while (true)
-            {
-
-            }
+            
         }
     }
 }
