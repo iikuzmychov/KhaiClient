@@ -22,7 +22,7 @@ public class Schedule : IEnumerable<DaySchedule>
         Friday    = friday ?? throw new ArgumentNullException(nameof(friday));
     }
 
-    public IEnumerator<DaySchedule> GetEnumerator()
+    IEnumerator<DaySchedule> IEnumerable<DaySchedule>.GetEnumerator()
     {
         yield return Monday;
         yield return Tuesday;
