@@ -20,6 +20,16 @@ public class DaySchedule : IEnumerable<AlternateUniversityClass>
         Fourth = fourth ?? throw new ArgumentNullException(nameof(fourth));
     }
 
+    public static DaySchedule Parse(IList<AlternateUniversityClass> classes)
+    {
+        ArgumentNullException.ThrowIfNull(classes);
+
+        if (classes.Count != 4)
+            throw new ArgumentException("A classes count must equals 4.");
+
+        return new DaySchedule(classes[0], classes[1], classes[2], classes[3]);
+    }
+
     IEnumerator<AlternateUniversityClass> IEnumerable<AlternateUniversityClass>.GetEnumerator()
     {
         yield return First;
