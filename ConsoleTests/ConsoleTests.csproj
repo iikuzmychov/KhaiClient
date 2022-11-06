@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KhaiApiClient\KhaiApiClient.csproj" />
+    <ProjectReference Include="..\KhaiClient\KhaiClient.csproj" />
   </ItemGroup>
 
 </Project>
