@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace KhaiApiClient;
+namespace Khai;
 
 public static class EnumerableExtensions
 {

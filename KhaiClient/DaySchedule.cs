@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace KhaiApiClient;
+namespace Khai;
 
 public class DaySchedule : IEnumerable<AlternateUniversityClass>
 {

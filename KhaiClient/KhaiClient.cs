@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace KhaiApiClient;
+namespace Khai;
 
 public class KhaiClient
 {

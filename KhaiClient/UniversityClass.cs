@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace KhaiApiClient;
+namespace Khai;
 
 public class UniversityClass
 {

@@ -1,4 +1,4 @@
-﻿using KhaiApiClient;
+﻿using Khai;
 using System.Diagnostics;
 
 var client = new KhaiClient();
