@@ -1,13 +1,4 @@
-﻿using KuzCode.KhaiApiClient;
-using System;
+﻿using KhaiApiClient;
 
-namespace ConsoleTests
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            
-        }
-    }
-}
+var client   = new KhaiClient();
+var schedule = await client.GetStudentWeekSheduleAsync("kuzmichov-i-i");
