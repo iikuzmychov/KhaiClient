@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace KhaiApiClient;
 
-public class Schedule : IEnumerable<DaySchedule>
+public class WeekSchedule : IEnumerable<DaySchedule>
 {
     public DaySchedule Monday { get; }
     public DaySchedule Tuesday { get; }
@@ -12,7 +12,7 @@ public class Schedule : IEnumerable<DaySchedule>
     public DaySchedule Thursday { get; }
     public DaySchedule Friday { get; }
 
-    public Schedule(DaySchedule monday, DaySchedule tuesday,
+    public WeekSchedule(DaySchedule monday, DaySchedule tuesday,
         DaySchedule wednesday, DaySchedule thursday, DaySchedule friday)
     { 
         Monday    = monday ?? throw new ArgumentNullException(nameof(monday));
@@ -20,6 +20,16 @@ public class Schedule : IEnumerable<DaySchedule>
         Wednesday = wednesday ?? throw new ArgumentNullException(nameof(wednesday));
         Thursday  = thursday ?? throw new ArgumentNullException(nameof(thursday));
         Friday    = friday ?? throw new ArgumentNullException(nameof(friday));
+    }
+
+    public static WeekSchedule Parse(IList<DaySchedule> daySchedules)
+    {
+        ArgumentNullException.ThrowIfNull(daySchedules);
+
+        if (daySchedules.Count != 5)
+            throw new ArgumentException("A day schedules count must equals 5.");
+
+        return new WeekSchedule(daySchedules[0], daySchedules[1], daySchedules[2], daySchedules[3], daySchedules[4]);
     }
 
     IEnumerator<DaySchedule> IEnumerable<DaySchedule>.GetEnumerator()
