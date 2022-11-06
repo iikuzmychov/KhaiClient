@@ -1,6 +1,7 @@
 ﻿using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -31,6 +32,37 @@ public class KhaiClient
         var response      = (await _httpClient.GetAsync(@$"union/schedule/student/{studentId}")).EnsureSuccessStatusCode();
         var contentStream = await response.Content.ReadAsStreamAsync();
         
+        return ParseWeekSchedule(contentStream);
+    }
+
+    public async Task<WeekSchedule> GetLecturerWeekSheduleAsync(string lecturerId)
+    {
+        ArgumentNullException.ThrowIfNull(lecturerId);
+
+        if (string.IsNullOrWhiteSpace(lecturerId))
+            throw new ArgumentException("A lecturer ID is an empty string.", nameof(lecturerId));
+
+        var response      = (await _httpClient.GetAsync(@$"union/schedule/lecturer/{lecturerId}")).EnsureSuccessStatusCode();
+        var contentStream = await response.Content.ReadAsStreamAsync();
+
+        return ParseWeekSchedule(contentStream);
+    }
+
+    public async Task<WeekSchedule> GetGroupWeekSheduleAsync(string groupId)
+    {
+        ArgumentNullException.ThrowIfNull(groupId);
+
+        if (string.IsNullOrWhiteSpace(groupId))
+            throw new ArgumentException("A group ID is an empty string.", nameof(groupId));
+
+        var response      = (await _httpClient.GetAsync(@$"union/schedule/group/{groupId}")).EnsureSuccessStatusCode();
+        var contentStream = await response.Content.ReadAsStreamAsync();
+
+        return ParseWeekSchedule(contentStream);
+    }
+
+    private WeekSchedule ParseWeekSchedule(Stream contentStream)
+    {
         var html = new HtmlDocument();
         html.Load(contentStream);
 
