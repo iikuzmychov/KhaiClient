@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Khai;
 
-public class KhaiClient
+public class KhaiClient : IDisposable
 {
     private const string BaseUrl = "https://education.khai.edu/";
 
@@ -60,6 +60,8 @@ public class KhaiClient
 
         return ParseWeekSchedule(contentStream);
     }
+
+    public void Dispose() => _httpClient.Dispose();
 
     private WeekSchedule ParseWeekSchedule(Stream contentStream)
     {
