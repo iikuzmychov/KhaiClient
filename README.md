@@ -19,6 +19,8 @@ var groupSchedule    = await client.GetGroupWeekSheduleAsync("group-id");
 
 When you select student/lecturer/room on the [website](https://education.khai.edu/union/schedule/student), the URL is changed. The last part of the URL is the ID that you need.
 
+For example, I got my ID as follows:
+
 ![image](https://user-images.githubusercontent.com/37931581/200339392-c8d02596-3796-4c96-b85f-8299b4f5fe25.png)
 
 ![image](https://user-images.githubusercontent.com/37931581/200339916-450810be-7fcc-4eaa-a82f-803753a0d144.png)
