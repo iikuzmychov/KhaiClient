@@ -113,7 +113,7 @@ public class KhaiClient : IDisposable
                 dayClasses.Add(new AlternateUniversityClass(numeratorClass, denominatorClass));
             }
 
-            daySchedules.Add(DaySchedule.Parse(dayClasses));
+            daySchedules.Add(new DaySchedule(dayClasses));
         }
 
         return WeekSchedule.Parse(daySchedules);
