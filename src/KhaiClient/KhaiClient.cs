@@ -22,7 +22,7 @@ public class KhaiClient : IDisposable
         };
     }
 
-    public async Task<WeekSchedule> GetStudentWeekSheduleAsync(string studentId)
+    public async Task<WeekSchedule> GetStudentWeekScheduleAsync(string studentId)
     {
         ArgumentNullException.ThrowIfNull(studentId);
 
@@ -35,7 +35,7 @@ public class KhaiClient : IDisposable
         return ParseWeekSchedule(contentStream);
     }
 
-    public async Task<WeekSchedule> GetLecturerWeekSheduleAsync(string lecturerId)
+    public async Task<WeekSchedule> GetLecturerWeekScheduleAsync(string lecturerId)
     {
         ArgumentNullException.ThrowIfNull(lecturerId);
 
@@ -48,7 +48,7 @@ public class KhaiClient : IDisposable
         return ParseWeekSchedule(contentStream);
     }
 
-    public async Task<WeekSchedule> GetGroupWeekSheduleAsync(string groupId)
+    public async Task<WeekSchedule> GetGroupWeekScheduleAsync(string groupId)
     {
         ArgumentNullException.ThrowIfNull(groupId);
 
