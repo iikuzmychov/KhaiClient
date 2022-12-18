@@ -46,7 +46,6 @@ public class WeekSchedule
         ArgumentNullException.ThrowIfNull(friday);
 
         _days = new DaySchedule[5] { monday, tuesday, wednesday, thursday, friday };
-        Days  = new ReadOnlyCollection<DaySchedule>(_days);
     }
 
     public static WeekSchedule Parse(IList<DaySchedule> days)
