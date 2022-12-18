@@ -2,8 +2,8 @@
 
 public class AlternateUniversityClass
 {
-    public UniversityClass? Numerator { get; }
-    public UniversityClass? Denominator { get; }
+    public UniversityClass? Numerator { get; set; }
+    public UniversityClass? Denominator { get; set; }
 
     public AlternateUniversityClass(UniversityClass? numerator, UniversityClass? denominator)
     {
