@@ -1,22 +1,22 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Khai;
 
-public class DaySchedule : IEnumerable<AlternateUniversityClass>
+public class DaySchedule
 {
-    public IList<AlternateUniversityClass> Classes { get; }
+    private IList<AlternateUniversityClass> _classes = new List<AlternateUniversityClass>();
 
-    public DaySchedule() : this(new List<AlternateUniversityClass>()) { }
+    public IList<AlternateUniversityClass> Classes
+    {
+        get => _classes;
+        set => _classes = value ?? throw new ArgumentNullException(nameof(value));
+    }
+
+    public DaySchedule() { }
 
     public DaySchedule(IList<AlternateUniversityClass> classes)
     {
-        Classes = classes ?? throw new ArgumentNullException(nameof(classes));
+        Classes = classes;
     }
-
-    IEnumerator<AlternateUniversityClass> IEnumerable<AlternateUniversityClass>.GetEnumerator()
-        => Classes.GetEnumerator();
-
-    IEnumerator IEnumerable.GetEnumerator() => Classes.GetEnumerator();
 }
